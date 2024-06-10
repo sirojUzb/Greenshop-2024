@@ -26,6 +26,9 @@ const Navbar = () => {
         <h3 className="relative cursor-pointer before:w-full before:h-1 before:absolute before:left-0 hover:before:bg-[#46A358] before:bottom-[-28px] before:content-['']">
           Blogs
         </h3>
+        <h3 className="relative cursor-pointer before: w-full before:h-1 before:absolute before:left-0 hover:before:bg-[#46a358] before:bottom-[-28px] before:content-['']">
+          portfolio
+        </h3>
       </div>
       <div className="flex gap-[30px]">
         <SearchOutlined className="cursor-pointer text-[20px]" />
