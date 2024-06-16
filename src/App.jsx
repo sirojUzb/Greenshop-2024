@@ -13,4 +13,4 @@ function App() {
 }
 
 export default App;
-// we should work on homePage
+// create 2 home files in 2 folders
