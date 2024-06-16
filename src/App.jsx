@@ -1,16 +1,18 @@
+import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
-import SlideSection from "./components/slide-section";
-import SideNav from "./components/sidenav";
+import Home from "./pages/home";
 
-function App() {
+const App = () => {
   return (
     <div>
       <Navbar />
-      <SlideSection />
-      <SideNav />
+      <Routes>
+        <Route index element={<Home />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
 // create 2 home files in 2 folders
+// 20-daqiqadan kor

@@ -3,8 +3,11 @@ import {
   SearchOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="w-[80%] h-20 flex items-center justify-between m-auto border-b border-b-[#46A35880]">
       <div>
@@ -14,7 +17,10 @@ const Navbar = () => {
         />
       </div>
       <div className="flex gap-12 items-center">
-        <h3 className="relative cursor-pointer before:w-full before:h-1 before:absolute before:left-0 hover:before:bg-[#46A358] before:bottom-[-28px] before:content-['']">
+        <h3
+          onClick={() => navigate("/")}
+          className="relative cursor-pointer before:w-full before:h-1 before:absolute before:left-0 hover:before:bg-[#46A358] before:bottom-[-28px] before:content-['']"
+        >
           Home
         </h3>
         <h3 className="relative cursor-pointer before:w-full before:h-1 before:absolute before:left-0 hover:before:bg-[#46A358] before:bottom-[-28px] before:content-['']">

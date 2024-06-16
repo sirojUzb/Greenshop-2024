@@ -1,5 +1,13 @@
+import SideNav from "./sidenav";
+import SlideSection from "./slide-section";
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <SlideSection />
+      <SideNav />
+    </div>
+  );
 };
 
 export default Home;
