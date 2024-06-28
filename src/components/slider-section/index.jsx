@@ -1,7 +1,7 @@
 import { Carousel } from "antd";
 import Slide1 from "./slide-1";
 
-const SlideSection = () => {
+const SliderSection = () => {
   return (
     <div className="w-[80%] h-[450px] m-auto bg-[#f5f5f5] mt-3">
       <Carousel>
@@ -13,4 +13,4 @@ const SlideSection = () => {
   );
 };
 
-export default SlideSection;
+export default SliderSection;
