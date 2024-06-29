@@ -1,7 +1,7 @@
 const Slide1 = () => {
   return (
     <div className="w-full h-[450px] flex">
-      <div className="w-[60%] pl-[40px]">
+      <div className="w-[60%]  pl-[40px]">
         <h5 className="mt-[68px]  mb-2 text-[14px]">WELCOME TO GREENSHOP</h5>
         <h1 className="text-[70px] font-black leading-[70px] ">
           LET{"'"}S MAKE A BETTER <span className="text-[#46a358]">PLANET</span>
