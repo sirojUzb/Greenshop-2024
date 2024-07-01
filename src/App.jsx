@@ -13,4 +13,4 @@ const App = () => {
 };
 
 export default App;
-// 3-videodan ko'r
+// 3-videodan kor
