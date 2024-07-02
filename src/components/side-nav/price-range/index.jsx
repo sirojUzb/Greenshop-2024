@@ -5,8 +5,8 @@ const PriceRange = () => {
   const [range, setRange] = useState([0, 1500]);
 
   return (
-    <div>
-      <h3 className="font-bold">Categories</h3>
+    <div className="mt-[38px]">
+      <h3 className="font-bold">Price Range</h3>
       <div className="pl-[12px] w-full">
         <Slider min={0} max={1500} value={range} onChange={setRange} range />
         <div>
