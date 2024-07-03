@@ -1,16 +1,17 @@
+import Home from "./pages/home";
 import Navbar from "./components/navbar";
-import SliderSection from "./components/slider-section";
-import SideNav from "./components/side-nav";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <div>
       <Navbar />
-      <SliderSection />
-      <SideNav />
+      <Routes>
+        <Route index element={<Home />} />
+      </Routes>
     </div>
   );
 };
 
 export default App;
-// 3-videodan kor
+// 2-dars 2-videodan  12- minutdan kor
