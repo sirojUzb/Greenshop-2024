@@ -21,7 +21,7 @@ const Categories = () => {
     })();
   }, []);
 
-  const selectedCategory = getParams.get("category") ?? "house-plants";
+  const selectedCategory = getParams("category") ?? "house-plants";
   const normal_text =
     "w-full flex justify-between items-center mt-[7px] hover:text-[#46a358] cursor-pointer";
   const active_text =

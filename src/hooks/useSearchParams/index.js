@@ -6,13 +6,14 @@ import {
 export const useSearchParams = () => {
   const { search } = useLocation();
   const [get, set] = useSearchRouterParam();
+
   const params = new URLSearchParams(search);
 
   const getAllParams = () => {
     return {
       keys: Array.from(params.keys()),
-      value: Array.from(params.value()),
-      pair: Object.fromEntries(Array.from(params.entries)),
+      values: Array.from(params.values()),
+      pair: Object.fromEntries(Array.from(params.entries())),
     };
   };
 
