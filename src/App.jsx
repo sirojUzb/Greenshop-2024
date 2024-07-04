@@ -14,4 +14,3 @@ const App = () => {
 };
 
 export default App;
-// 2-dars 2-videodan  12- minutdan kor
