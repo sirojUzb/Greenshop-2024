@@ -29,4 +29,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </AuthProvider>
 );
-// cashe 2-video 19-minutdan boshla

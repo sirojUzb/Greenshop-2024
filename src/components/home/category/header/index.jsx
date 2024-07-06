@@ -53,7 +53,8 @@ const Header = () => {
         <h3>Sort By:</h3>
         <Select
           labelInValue
-          defaultValue={options?.filter((item) => item.value === sort)}
+          defaultValue={{ value: sort }}
+          // defaultValue={options?.filter((item) => item.value === sort)}
           onChange={(value) => setParams({ sort: value.value })}
           style={{
             width: 150,
