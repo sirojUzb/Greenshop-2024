@@ -8,8 +8,7 @@ const Body = () => {
   const axios = useAxios();
   const { getParams } = useSearchParams();
 
-  const category = getParams("category" ?? "house-plants");
-
+  const category = getParams("category") ?? "house-plants";
   const { data, isLoading } = useQuery({
     queryKey: [category],
     queryFn: async () => {
