@@ -20,8 +20,8 @@ const Header = () => {
     },
   ];
 
-  const type = getParams("type");
-  const sort = getParams("sort");
+  const type = getParams("type") ?? "all-plants";
+  const sort = getParams("sort") ?? "default-sorting";
 
   return (
     <div className="w-full flex justify-between items-center">
@@ -52,10 +52,11 @@ const Header = () => {
       <div className="flex items-center gap-2">
         <h3>Sort By:</h3>
         <Select
-          labelInValue
-          defaultValue={{ value: sort }}
-          // defaultValue={options?.filter((item) => item.value === sort)}
-          onChange={(value) => setParams({ sort: value.value })}
+          // defaultValue={{ value: sort }}
+          value={options?.filter((item) => item.value === sort)[0]}
+          onChange={(value) => {
+            setParams({ sort: value });
+          }}
           style={{
             width: 150,
           }}
