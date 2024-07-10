@@ -1,27 +1,17 @@
-import { Select } from "antd";
+import { Button } from "antd";
 import { useSearchParams } from "../../../../hooks/useSearchParams";
+import { BarsOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { setCategoryModal } from "../../../../redux/generic-slices/modals";
+import SortSelector from "./sort-selector";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const { setParams, getParams } = useSearchParams();
   const activeSelection =
     "text-[#46a358] font-bold border-b-2 border-[#46a358]";
-  const options = [
-    {
-      value: "default-sorting",
-      label: "Default Sorting",
-    },
-    {
-      value: "the-cheapest",
-      label: "The Cheapest",
-    },
-    {
-      value: "most-expensive",
-      label: "Most Expensive",
-    },
-  ];
 
   const type = getParams("type") ?? "all-plants";
-  const sort = getParams("sort") ?? "default-sorting";
 
   return (
     <div className="w-full flex justify-between items-center">
@@ -49,20 +39,15 @@ const Header = () => {
           Sale
         </h3>
       </div>
-      <div className="flex items-center gap-2">
-        <h3>Sort By:</h3>
-        <Select
-          // defaultValue={{ value: sort }}
-          value={options?.filter((item) => item.value === sort)[0]}
-          onChange={(value) => {
-            setParams({ sort: value });
-          }}
-          style={{
-            width: 150,
-          }}
-          options={options}
-        />
+      <div className="max-md:hidden">
+        <SortSelector />
       </div>
+      <Button
+        onClick={() => dispatch(setCategoryModal())}
+        className="hidden max-md:flex items-center justify-center"
+      >
+        <BarsOutlined />
+      </Button>
     </div>
   );
 };

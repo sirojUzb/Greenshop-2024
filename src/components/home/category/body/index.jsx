@@ -12,8 +12,9 @@ const Body = () => {
   const min = getParams("min") ?? 0;
   const max = getParams("max") ?? 1500;
   const sort = getParams("sort") ?? "default-sorting";
+  const type = getParams("type") ?? "all-plants";
 
-  const cashe_key = `category=${category}&min=${min}&max=${max}&sort=${sort}`;
+  const cashe_key = `category=${category}&min=${min}&max=${max}&sort=${sort}&type=${type}`;
 
   const { data, isLoading } = useQuery({
     queryKey: [cashe_key],
@@ -29,8 +30,6 @@ const Body = () => {
       return data.data;
     },
   });
-
-  console.log(data);
 
   return (
     <div className="flex flex-wrap gap-4 mt-8">
