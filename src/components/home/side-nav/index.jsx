@@ -5,7 +5,7 @@ import Sizes from "./size";
 
 const SideNav = () => {
   return (
-    <div className="w-[310px] bg-[#f5f5f5] px-[18px] py-[14px] max-md: hidden">
+    <div className="w-[310px] bg-[#f5f5f5] px-[18px] py-[14px] max-md:hidden">
       <Categories />
       <PriceRange />
       <Sizes />
