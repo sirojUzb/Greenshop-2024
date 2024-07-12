@@ -10,7 +10,7 @@ import { useState } from "react";
 import { useAxios } from "../../../../../hooks/useAxios";
 import { useDispatch } from "react-redux";
 import { setAuthModal } from "../../../../../redux/generic-slices/modals";
-import { signInWithGoogle } from "../../../../../configs/firebase";
+// import { signInWithGoogle } from "../../../../../configs/firebase";
 
 const Login = () => {
   const { singIn } = useAuth();
@@ -56,12 +56,12 @@ const Login = () => {
 
   const singInGoogle = async () => {
     try {
-      const { user } = await signInWithGoogle();
+      // const { user } = await signInWithGoogle();
 
       const { data } = await axios({
         url: "/api/user/sign-in/google",
         method: "POST",
-        data: user.email,
+        // data: user.email,
       });
 
       const { token, user: authUser } = data.data;

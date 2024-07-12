@@ -7,7 +7,7 @@ import {
 import { useAxios } from "../../../../../hooks/useAxios";
 import { useAuth } from "../../../../../configs/auth";
 import { useDispatch } from "react-redux";
-import { setAuthModal } from "../../../../../redux/generec-slices/modals";
+import { setAuthModal } from "../../../../../redux/generic-slices/modals";
 import { useState } from "react";
 
 const Register = () => {

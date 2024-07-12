@@ -4,20 +4,20 @@ export const useAuth = () => {
   const singIn = ({ token, user, tokenType = "Bearer" }) => {
     cookie.set("token", token);
     cookie.set("user", JSON.stringify(user));
-    cookie.set("tokenTupe", tokenType);
+    cookie.set("tokenType", tokenType);
   };
 
   const singOut = () => {
     cookie.remove("token");
     cookie.remove("user");
-    cookie.remove("tokenTupe");
+    cookie.remove("tokenType");
   };
 
   const getUser = () => {
     return {
       token: cookie.get("token"),
       user: JSON.parse(cookie.get("user") ?? "{}"),
-      tokenType: cookie.get("tokenTupe"),
+      tokenType: cookie.get("tokenType"),
     };
   };
 

@@ -6,7 +6,7 @@ import {
 import { Button } from "antd";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setauthModal } from "../../redux/generic-slices/modals";
+import { setAuthModal } from "../../redux/generic-slices/modals";
 import AuthModal from "./modals/auth";
 import useAuth from "../../configs/auth";
 
@@ -57,7 +57,7 @@ const Navbar = () => {
             </Button>
           ) : (
             <Button
-              onClick={() => dispatch(setauthModal())}
+              onClick={() => dispatch(setAuthModal())}
               primary
               className="w-[100px] h-[35px] bg-[#46a358] flex gap-2 items-center text-white cursor-pointer animate-bounce"
             >
