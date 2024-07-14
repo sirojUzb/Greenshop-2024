@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setAuthModal } from "../../redux/generic-slices/modals";
 import AuthModal from "./modals/auth";
-import useAuth from "../../configs/auth";
+import { useAuth } from "../../configs/auth";
 
 const Navbar = () => {
   const { isAuthed, getUser } = useAuth();

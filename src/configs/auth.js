@@ -21,7 +21,7 @@ export const useAuth = () => {
     };
   };
 
-  const isAuth = () => {
+  const isAuthed = () => {
     return !!cookie.get("token");
   };
 
@@ -29,6 +29,6 @@ export const useAuth = () => {
     singIn,
     singOut,
     getUser,
-    isAuth,
+    isAuthed,
   };
 };
