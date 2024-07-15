@@ -2,15 +2,12 @@ import { Skeleton } from "antd";
 
 const Loading = () => {
   return (
-    <div className="w-[258px]">
-      <div className="w-full h-[300px] flex items-center justify-center bg-[#fbfbfb]">
-        {/* <img className="w-full h-full" src={main_image} alt="as" /> */}
-        <Skeleton.Image />
+    <div>
+      <div className="w-full h-[300px] bg-[#fbfbfb] flex items-center justify-center">
+        <Skeleton.Image active />
       </div>
-
-      <Skeleton.Input />
-
-      <Skeleton.Input />
+      <Skeleton.Input active />
+      <Skeleton.Input active />
     </div>
   );
 };
