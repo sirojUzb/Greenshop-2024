@@ -29,4 +29,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </AuthProvider>
 );
-// 8-dars 1-vid 20 min
