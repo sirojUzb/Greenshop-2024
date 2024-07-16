@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import useAxios from "../../hooks/axios";
+import { useAxios } from "../../hooks/useAxios";
 
 export const useProductFeatures = () => {
   const { category, productId } = useParams();

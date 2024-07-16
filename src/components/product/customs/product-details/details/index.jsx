@@ -2,8 +2,8 @@ import { HeartOutlined } from "@ant-design/icons";
 import { Divider, Rate, Tag, Tooltip } from "antd";
 import { useProductFeatures } from "../../../features";
 import { useDispatch } from "react-redux";
-import { setauthModal } from "../../../../../redux/generic-slices/modals";
-import useAuth from "../../../../../configs/auth";
+import { setAuthModal } from "../../../../../redux/generic-slices/modals";
+import { useAuth } from "../../../../../configs/auth";
 import { useParams } from "react-router-dom";
 
 const Details = () => {
@@ -17,7 +17,7 @@ const Details = () => {
 
   const addToWishList = () => {
     if (!isAuthed()) {
-      return dispatch(setauthModal());
+      return dispatch(setAuthModal());
     }
   };
 
@@ -48,7 +48,6 @@ const Details = () => {
           </p>
         </div>
       </div>
-      {/* <div className="flex w-full justify-between "></div> */}
 
       <Divider />
 
