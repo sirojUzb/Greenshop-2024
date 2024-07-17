@@ -2,13 +2,15 @@ import {
   LoginOutlined,
   SearchOutlined,
   ShoppingCartOutlined,
+  BarsOutlined,
 } from "@ant-design/icons";
 import { Button } from "antd";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setAuthModal } from "../../redux/generic-slices/modals";
+import { setAuthModal, setSiteMap } from "../../redux/generic-slices/modals";
 import AuthModal from "./modals/auth";
 import { useAuth } from "../../configs/auth";
+import Sitemap from "./modals/sitemap";
 
 const Navbar = () => {
   const { isAuthed, getUser } = useAuth();
@@ -20,15 +22,16 @@ const Navbar = () => {
   return (
     <>
       <AuthModal />
+      <Sitemap />
+
       <div className="w-[80%] h-20 m-auto flex items-center justify-between border-b border-b-[#46A35880]">
         <div>
           <img
-            className="cursor-pointer"
             src="https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Flogo.svg?alt=media&token=fc9659d6-f435-43b9-a624-8b0d3a574baa"
             alt="logo"
           />
         </div>
-        <div className="flex gap-12 items-center h-full">
+        <div className="flex gap-12 items-center h-full max-md:hidden">
           <h3
             onClick={() => navigate("/")}
             className="relative cursor-pointer before:w-full before:h-1 before:absolute before:left-0 hover:before:bg-[#46a358] before:bottom-[-28px] before:content-['']"
@@ -45,7 +48,7 @@ const Navbar = () => {
             Blogs
           </h3>
         </div>
-        <div className="flex gap-[30px]">
+        <div className="flex gap-[30px] max-md:hidden">
           <SearchOutlined className="cursor-pointer text-[20px]" />
           <ShoppingCartOutlined className="cursor-pointer text-[20px]" />
           {isAuthed() ? (
@@ -64,6 +67,16 @@ const Navbar = () => {
               <LoginOutlined /> Login
             </Button>
           )}
+        </div>
+        <div className="hidden max-md:flex gap-4">
+          <SearchOutlined className="cursor-pointer text-[20px]" />
+          <ShoppingCartOutlined className="cursor-pointer text-[20px]" />
+          <Button
+            onClick={() => dispatch(setSiteMap)}
+            className="hidden max-md:flex items-center justify-center"
+          >
+            <BarsOutlined />
+          </Button>
         </div>
       </div>
     </>
