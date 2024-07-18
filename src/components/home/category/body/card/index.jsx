@@ -24,7 +24,7 @@ const Card = ({ title, main_image, price, _id, category }) => {
   };
 
   return (
-    <div className="flex flex-col w-[300px]">
+    <div className="flex flex-col w-[250px] max-md:hidden">
       <div className="w-full h-[300px] bg-[#fbfbfb] relative group">
         <img className="w-full h-full" src={main_image} alt="flower" />
         <div className="absolute bottom-6 z-10 gap-4 left-[70px] hidden group-hover:flex">

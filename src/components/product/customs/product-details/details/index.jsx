@@ -31,7 +31,7 @@ const Details = () => {
           />
           <img
             className="rounded-full w-[50px] h-[50px] cursor-pointer"
-            src={data?.profile_photo}
+            src={user?.profile_photo}
             alt={`${user?.name} ${user?.surname}`}
           />
         </div>

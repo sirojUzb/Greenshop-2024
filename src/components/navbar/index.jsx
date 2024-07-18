@@ -72,7 +72,7 @@ const Navbar = () => {
           <SearchOutlined className="cursor-pointer text-[20px]" />
           <ShoppingCartOutlined className="cursor-pointer text-[20px]" />
           <Button
-            onClick={() => dispatch(setSiteMap)}
+            onClick={() => dispatch(setSiteMap())}
             className="hidden max-md:flex items-center justify-center"
           >
             <BarsOutlined />
