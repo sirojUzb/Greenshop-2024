@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div>
       <SliderSection />
-      <div className="flex w-[80%] m-auto mt-[46px] gap-8">
+      <div className="flex w-[80%] m-auto mt-[46px] gap-6">
         <SideNav />
         <Category />
       </div>

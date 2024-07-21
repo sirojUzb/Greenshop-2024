@@ -19,7 +19,7 @@ const Categories = () => {
   });
 
   const selectedCategory = getParams("category") ?? "house-plants";
-  const noraml_text =
+  const normal_text =
     "w-full flex justify-between items-center mt-[7px] hover:text-[#46A358] cursor-pointer";
   const active_text =
     "w-full flex justify-between items-center mt-[7px] text-[#46A358] cursor-pointer";
@@ -38,7 +38,7 @@ const Categories = () => {
                 className={
                   selectedCategory === category.route_path
                     ? active_text
-                    : noraml_text
+                    : normal_text
                 }
                 onClick={() => setParams({ category: category.route_path })}
               >
