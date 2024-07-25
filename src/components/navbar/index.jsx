@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { setAuthModal, setSiteMap } from "../../redux/generic-slices/modals";
 import AuthModal from "./modals/auth";
 import { useAuth } from "../../configs/auth";
-import Sitemap from "./modals/sitemap";
+import SiteMap from "./modals/sitemap";
 
 const Navbar = () => {
   const { isAuthed, getUser } = useAuth();
@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <>
       <AuthModal />
-      <Sitemap />
+      <SiteMap />
 
       <div className="w-[80%] h-20 m-auto flex items-center justify-between border-b border-b-[#46A35880]">
         <div>

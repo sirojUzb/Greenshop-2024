@@ -2,7 +2,7 @@ import { Modal } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { setSiteMap } from "../../../../redux/generic-slices/modals";
 
-const Sitemap = () => {
+const SiteMap = () => {
   const { siteMap } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
 
@@ -10,7 +10,7 @@ const Sitemap = () => {
     <Modal
       open={siteMap}
       onCancel={() => dispatch(setSiteMap())}
-      title="Sitemap"
+      title="SiteMap"
       footer={false}
     >
       <div>
@@ -28,4 +28,4 @@ const Sitemap = () => {
   );
 };
 
-export default Sitemap;
+export default SiteMap;

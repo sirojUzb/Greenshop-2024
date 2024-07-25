@@ -21,8 +21,9 @@ export const useProductFeatures = () => {
     queryKey: [`user/${product?.data?.created_by}`],
     queryFn: async () => {
       const { data } = await axios({
-        url: `user/by_id/${product?.data?.created_by}`,
+        url: `/user/by_id/${product?.data?.created_by}`,
       });
+
       return data?.data;
     },
     enabled: !!product?.data,

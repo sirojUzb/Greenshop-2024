@@ -28,12 +28,13 @@ const Details = () => {
           <Tooltip
             className="w-[50px] h-[50px] rounded-full"
             title={`${user?.name} ${user?.surname}`}
-          />
-          <img
-            className="rounded-full w-[50px] h-[50px] cursor-pointer"
-            src={user?.profile_photo}
-            alt={`${user?.name} ${user?.surname}`}
-          />
+          >
+            <img
+              className="rounded-full w-[50px] h-[50px] cursor-pointer"
+              src={user?.profile_photo}
+              alt={`${user?.name} ${user?.surname}`}
+            />
+          </Tooltip>
         </div>
         <div>
           <h3 className="text-[28px] font-bold">{data?.title}</h3>
