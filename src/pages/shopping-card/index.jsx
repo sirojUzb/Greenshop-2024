@@ -1,10 +1,7 @@
-import ShoppingCartComponent from "../../components/shopping-cart";
+import ShoppingCardComponent from "../../components/shopping-card";
+
 const ShoppingCard = () => {
-  return (
-    <div>
-      <ShoppingCartComponent />
-    </div>
-  );
+  return <ShoppingCardComponent />;
 };
 
 export default ShoppingCard;
