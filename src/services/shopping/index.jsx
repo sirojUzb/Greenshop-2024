@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setCoupon, setShoppingProducts } from "../../redux/slices/shopping";
 import { notification } from "antd";
-import useAxios from "../../hooks/axios";
+import { useAxios } from "../../hooks/useAxios";
 
 export const useShoppingService = () => {
   const axios = useAxios();
