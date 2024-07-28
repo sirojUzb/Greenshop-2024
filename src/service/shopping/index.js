@@ -5,21 +5,27 @@ import { notification } from "antd";
 export const useShoppingService = () => {
   const dispatch = useDispatch();
   const { products } = useSelector(({ shopping }) => shopping);
+
   const onAdd = (product) => {
-    const index = products.findIndex((item) => item.id === product.id);
+    const index = products.find((item) => item._id === product._id);
 
     notification.success({ message: "Product added to cart" });
 
-    if (index === -1)
+    if (!index)
       return dispatch(
         setShoppingProducts([...products, { ...product, quantity: 1 }])
       );
 
     dispatch(
-      getShoppingProducts().map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      setShoppingProducts(
+        products.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
       )
     );
   };
-  return { onAdd };
+
+  return { onAdd, products };
 };

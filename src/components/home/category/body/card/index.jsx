@@ -7,7 +7,7 @@ import { useAuth } from "../../../../../configs/auth";
 import { useDispatch } from "react-redux";
 import { setAuthModal } from "../../../../../redux/generic-slices/modals";
 import { useNavigate } from "react-router-dom";
-import { useShoppingService } from "../../../../../services/shopping";
+import { useShoppingService } from "../../../../../service/shopping";
 
 const Card = (props) => {
   const { isAuthed } = useAuth();

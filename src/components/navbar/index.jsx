@@ -11,7 +11,7 @@ import { setAuthModal, setSiteMap } from "../../redux/generic-slices/modals";
 import AuthModal from "./modals/auth";
 import { useAuth } from "../../configs/auth";
 import SiteMap from "./modals/sitemap";
-import { useShoppingService } from "../../services/shopping";
+import { useShoppingService } from "../../service/shopping";
 
 const Navbar = () => {
   const { isAuthed, getUser } = useAuth();
@@ -25,11 +25,10 @@ const Navbar = () => {
     <>
       <AuthModal />
       <SiteMap />
+
       <div className="w-[80%] h-20 m-auto flex items-center justify-between border-b border-b-[#46A35880] max-md:w-[95%]">
         <div>
           <img
-            onClick={() => navigate("/")}
-            className="cursor-pointer"
             src="https://firebasestorage.googleapis.com/v0/b/aema-image-upload.appspot.com/o/greenshop%2Ficons%2Flogo.svg?alt=media&token=fc9659d6-f435-43b9-a624-8b0d3a574baa"
             alt="logo"
           />
@@ -55,17 +54,18 @@ const Navbar = () => {
           <SearchOutlined className="cursor-pointer text-[25px]" />
           <Badge count={products?.length} className="mt-[5px]">
             <ShoppingCartOutlined
-              onClick={() => navigate("/shopping-cart")}
+              onClick={() => navigate("/shopping-card")}
               className="cursor-pointer text-[25px]"
             />
           </Badge>
+
           {isAuthed() ? (
-            <Button
-              primary
+            <button
+              type="button"
               className="w-[100px] h-[35px] bg-[#46a358] flex gap-2 items-center text-white cursor-pointer "
             >
               {user.name}
-            </Button>
+            </button>
           ) : (
             <Button
               onClick={() => dispatch(setAuthModal())}
