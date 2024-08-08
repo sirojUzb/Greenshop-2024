@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { dashboard_mock } from "../../../utils/mock";
+import { dashboard_mock } from "../../../../utils/mock";
 
 export const Dashboard = () => {
   const navigate = useNavigate();

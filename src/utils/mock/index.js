@@ -4,7 +4,7 @@ import {
   ShoppingOutlined,
   EnvironmentOutlined,
   DashboardOutlined,
-} from "ant-design/icon";
+} from "@ant-design/icons";
 import AccountDetails from "../../components/profile/account-details";
 
 export const carousel_mock = [
