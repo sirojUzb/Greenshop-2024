@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Dashboard } from "./customs/dashboard";
+import Dashboard from "./customs/dashboard";
 
 const Profile = () => {
   return (
