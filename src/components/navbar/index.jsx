@@ -61,6 +61,7 @@ const Navbar = () => {
 
           {isAuthed() ? (
             <button
+              onClick={() => navigate("/profile")}
               type="button"
               className="w-[100px] h-[35px] bg-[#46a358] flex gap-2 items-center text-white cursor-pointer "
             >

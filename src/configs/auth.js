@@ -13,6 +13,10 @@ export const useAuth = () => {
     cookie.remove("tokenType");
   };
 
+  const updateUser = ({ setter }) => {
+    cookie.set("user", JSON.stringify(setter));
+  };
+
   const getUser = () => {
     return {
       token: cookie.get("token"),
@@ -30,5 +34,6 @@ export const useAuth = () => {
     singOut,
     getUser,
     isAuthed,
+    updateUser,
   };
 };

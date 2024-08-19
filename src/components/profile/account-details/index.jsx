@@ -1,12 +1,40 @@
-import { Form, Button, Input, Upload } from "antd";
+import { Form, Button, Input, Upload, notification } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { useAuth } from "../../../configs/auth";
+import { useAxios } from "../../../hooks/useAxios";
 
 const AccountDetails = () => {
-  const { getUser } = useAuth();
+  const { getUser, updateUser } = useAuth();
   const { user } = getUser();
-  const onFinish = () => {
-    console.log("Form Submitted");
+  const axios = useAxios();
+  const onFinish = async (e) => {
+    console.log(user);
+    await axios({
+      url: "user/account-details",
+      method: "POST",
+      data: {
+        _id: user?._id,
+        ...e,
+        profile_photo:
+          e?.profile_photo?.file?.response?.image_url?.url ??
+          user?.profile_photo,
+      },
+    });
+
+    updateUser({
+      setter: {
+        ...user,
+        ...e,
+        profile_photo:
+          e?.profile_photo?.file?.response?.image_url?.url ??
+          user?.profile_photo,
+      },
+    });
+
+    notification.success({
+      message: "Account details updated successfully",
+      type: "success",
+    });
   };
   return (
     <Form
@@ -94,7 +122,7 @@ const AccountDetails = () => {
             width: "calc(50% - 8px)",
           }}
         >
-          <Input placeholder="Your email address..." />
+          <Input disabled placeholder="Your email address..." />
         </Form.Item>
         <Form.Item
           label="Phone Number"
@@ -150,7 +178,7 @@ const AccountDetails = () => {
           <Upload
             name="image"
             action={
-              "https://greenshop.abduvoitov.com/api/upload?access_token=64bebc1e2c6d3f056a8c85b7"
+              "https://localhost:8080/api/upload?access_token=64bebc1e2c6d3f056a8c85b7"
             }
             listType="picture"
             data={{ type: "img" }}
