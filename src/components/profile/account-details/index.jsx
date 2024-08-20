@@ -8,7 +8,6 @@ const AccountDetails = () => {
   const { user } = getUser();
   const axios = useAxios();
   const onFinish = async (e) => {
-    console.log(user);
     await axios({
       url: "user/account-details",
       method: "POST",
@@ -191,7 +190,10 @@ const AccountDetails = () => {
           </Upload>
         </Form.Item>
       </Form.Item>
-      <button type="submit" className="h-[40px] px-[10px] mt-[15px]">
+      <button
+        type="submit"
+        className="h-[40px] px-[10px] mt-[15px] bg-[#46a358] text-white"
+      >
         Save changes
       </button>
     </Form>
