@@ -29,4 +29,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </AuthProvider>
 );
-// profile-product
+// profile-wish list
