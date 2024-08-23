@@ -6,10 +6,10 @@ import Order from "./order";
 const TrackOrder = () => {
   const axios = useAxios();
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["order"],
+    queryKey: ["track-order"],
     queryFn: async () => {
       const { data } = await axios({
-        url: "user/get-order",
+        url: "/order/get-order",
       });
 
       return data.data.filter(Boolean);
@@ -19,7 +19,7 @@ const TrackOrder = () => {
     return (
       <div className="p-[15px] w-full">
         <h1 className="font-bold text-xl mb-[20px]">Track your Orders</h1>
-        <div className="flex flex-col gap-">
+        <div className="flex flex-col gap-2">
           {Array.from({ length: 5 }).map((_, index) => (
             <div key={index} className="bg-[#FBFBFB] h-[70px] w-full flex">
               <div className="w-full grid grid-cols-4 max-sm:grid-cols-2">
