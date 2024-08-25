@@ -1,64 +1,58 @@
-import {
-  HeartFilled,
-  SearchOutlined,
-  ShoppingCartOutlined,
-} from "@ant-design/icons";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { useAxios } from "../../../hooks/useAxios";
+import { Empty, Skeleton } from "antd";
+import Card from "./card";
 
-const Card = (props) => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+const Wishlist = () => {
+  const axios = useAxios();
 
-  const { title, main_image, price, _id, category } = props;
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["wishlist"],
+    queryFn: async () => {
+      const { data } = await axios({
+        url: "/user/wishlist",
+      });
 
-  const viewProduct = () => {
-    navigate(`/product/${category}/${_id}`);
-  };
+      return data.data.filter(Boolean);
+    },
+  });
+
+  if (isLoading || isError)
+    return (
+      <div className="w-full mt-[30px] gap-4 grid grid-cols-3 max-ms:grid-cols-2">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <div key={index} className="h-[300px] flex flex-col">
+            <Skeleton.Image className="w-full main_card" active={true} />
+            <h3 className="font-normal cursor-pointer mt-[12px]">
+              <Skeleton.Input active={true} />
+            </h3>
+            <p className="font-bold text-[#46A358]">
+              <Skeleton.Input active={true} />
+            </p>
+          </div>
+        ))}
+      </div>
+    );
+
+  if (!data.length)
+    return (
+      <Empty
+        className="mt-[10px]"
+        description={
+          <div>
+            <h3 className="text-[18px] text-bold">No wishproducts yet...</h3>
+          </div>
+        }
+      />
+    );
 
   return (
-    <div>
-      <div className="flex flex-col max-md:hidden w-[300px]">
-        <div className="w-full h-[300px] bg-[#fbfbfb] relative group">
-          <img className="w-full h-full" src={main_image} alt="flower" />
-          <div className="absolute bottom-6 z-10 gap-4 left-[70px] hidden group-hover:flex">
-            <div className="w-[35px] h-[35px] rounded-md cursor-pointer bg-white flex items-center justify-center">
-              <ShoppingCartOutlined />
-            </div>
-            <div className="w-[35px] h-[35px] rounded-md cursor-pointer bg-white flex items-center justify-center">
-              <HeartFilled className="text-red-600" />
-            </div>
-            <div
-              onClick={viewProduct}
-              className="w-[35px] h-[35px] rounded-md cursor-pointer bg-white flex items-center justify-center"
-            >
-              <SearchOutlined />
-            </div>
-          </div>
-        </div>
-        <h3>{title}</h3>
-        <p className="font-bold text-[#46A358]">$ {price}</p>
-      </div>
-      <div className="hidden max-md:flex flex-col min-w-[640px]">
-        <div className="w-fit h-[200px] bg-[#fbfbfb] relative group">
-          <img className="w-full h-full" src={main_image} alt="flower" />
-          <div className="absolute bottom-6 z-10 gap-4 left-[70px] hidden group-hover:flex">
-            <div className="w-[35px] h-[35px] rounded-md cursor-pointer bg-white flex items-center justify-center">
-              <ShoppingCartOutlined />
-            </div>
-            <div className="w-[35px] h-[35px] rounded-md cursor-pointer bg-white flex items-center justify-center">
-              <HeartFilled className="text-red-600" />
-            </div>
-            <div className="w-[35px] h-[35px] rounded-md cursor-pointer bg-white flex items-center justify-center">
-              <SearchOutlined />
-            </div>
-          </div>
-        </div>
-        <h3>{title}</h3>
-        <p className="font-bold text-[#46A358]">$ {price}</p>
-      </div>
+    <div className="w-full mt-[30px] gap-4 grid grid-cols-3 max-ms:grid-cols-2">
+      {data.filter(Boolean).map((value) => (
+        <Card {...value} key={value._id} />
+      ))}
     </div>
   );
 };
 
-export default Card;
+export default Wishlist;

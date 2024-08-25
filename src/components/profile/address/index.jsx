@@ -1,7 +1,6 @@
 import { Checkbox, Form, Input, notification } from "antd";
 import { useAuth } from "../../../configs/auth";
 import { useAxios } from "../../../hooks/useAxios";
-
 const Address = () => {
   const { getUser, updateUser } = useAuth();
   const { user } = getUser();
