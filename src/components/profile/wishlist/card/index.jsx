@@ -7,15 +7,14 @@ import { useAuth } from "../../../../configs/auth";
 import { useNavigate } from "react-router-dom";
 import { useAxios } from "../../../../hooks/useAxios";
 import { useQueryClient } from "@tanstack/react-query";
-import { useShoppingService } from "../../../../service/shopping";
 
 const Card = (props) => {
   const { getUser, updateUser } = useAuth();
+  const user = getUser();
+  const axios = useAxios();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
-  const axios = useAxios();
-  const { user } = getUser();
-  const { onAdd } = useShoppingService();
+
   const { title, main_image, price, _id, category } = props;
 
   const viewProduct = () => {
@@ -23,9 +22,10 @@ const Card = (props) => {
   };
 
   const onDislike = async ({ _id }) => {
-    queryClient.setQueriesData(["wishlist"], (prev) => {
+    queryClient.setQueryData(["wishlist"], (prev) => {
       return prev.filter((value) => value._id !== _id);
     });
+
     updateUser({
       setter: {
         ...user,
@@ -34,34 +34,30 @@ const Card = (props) => {
     });
 
     await axios({
-      url: "user/delete-wishlist",
+      url: "/user/delete-wishlist",
       method: "DELETE",
-      data: {
+      body: {
         _id,
       },
     });
   };
-
   return (
-    <div className="flex flex-col">
-      <div className="w-full h-[300px] bg-[#fbfbfb] relative group flex justify-center items-center">
+    <div className="flex flex-col max-md:hidden w-[300px]">
+      <div className="w-full h-[300px] bg-[#fbfbfb] relative group">
         <img className="w-full h-full" src={main_image} alt="flower" />
-        <div className="hidden absolute inset-x-auto bottom-2 gap-4 group-hover:flex">
-          <div
-            onClick={() => onAdd(props)}
-            className="bg-[#fffff] w-[35px] h-[35px] flex rounded-lg items-center justify-center cursor-pointer"
-          >
+        <div className="absolute bottom-6 z-10 gap-4 left-[70px] hidden group-hover:flex">
+          <div className="w-[35px] h-[35px] rounded-md cursor-pointer bg-white flex items-center justify-center">
             <ShoppingCartOutlined />
           </div>
           <div
             onClick={() => onDislike(props)}
-            className="bg-[#fffff] w-[35px] h-[35px] flex rounded-lg items-center justify-center cursor-pointer"
+            className="w-[35px] h-[35px] rounded-md cursor-pointer bg-white flex items-center justify-center"
           >
             <HeartFilled className="text-red-600" />
           </div>
           <div
             onClick={viewProduct}
-            className="bg-[#fffff] w-[35px] h-[35px] flex rounded-lg items-center justify-center cursor-pointer"
+            className="w-[35px] h-[35px] rounded-md cursor-pointer bg-white flex items-center justify-center"
           >
             <SearchOutlined />
           </div>
