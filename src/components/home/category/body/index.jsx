@@ -32,7 +32,7 @@ const Body = () => {
   });
 
   return (
-    <div className="grid  grid-cols-3 gap-4 mt-[30px] max-sm:grid-cols-2">
+    <div className="grid grid-cols-3 gap-4 mt-[30px] max-sm:grid-cols-2">
       {isLoading
         ? Array.from({ length: 15 }).map((_, idx) => <Loading key={idx} />)
         : data?.map((item) => <Card key={item.id} {...item} />)}

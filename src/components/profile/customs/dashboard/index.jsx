@@ -2,10 +2,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { dashboard_mock } from "../../../../utils/mock";
 import { ExclamationCircleFilled, LogoutOutlined } from "@ant-design/icons";
 import { Modal } from "antd";
-const { confirm } = Modal;
+import { useAuth } from "../../../../configs/auth";
 
-const Dashboard = () => {
+const { confirm } = Modal;
+const active_style =
+  "border-l-[5px] border-[#46A358] text-[#46a358] text-bold bg-white";
+
+export const Dashboard = () => {
   const navigate = useNavigate();
+  const { signOut } = useAuth();
   const { pathname } = useLocation();
 
   const onLogout = () => {
@@ -18,15 +23,12 @@ const Dashboard = () => {
       },
       okText: "I'm sure",
       onOk: () => {
-        console.log("Ok!");
+        window.location.replace("/");
+        signOut();
       },
     });
   };
-  const active_style =
-    "border-l-[5px] border-[#46A358] text-[#46A358] text-bold bg-white ";
 
-  console.log(pathname.slice(9));
-  // /profile
   return (
     <div className="bg-[#FBFBFB] w-[310px] h-fit text-xl p-[15px] max-sm:hidden">
       <h1 className="font-bold">My Account</h1>

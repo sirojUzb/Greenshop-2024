@@ -21,6 +21,6 @@ export const useAxios = () => {
     });
   };
 };
-// bu metod -->custom axios = custom hook metodi deyiladi
+// bu metod -->custom axios = custom hook metodi deyiladicd
 // api bilan ishlashda 2ta narsa bilan security e'tibor berish kerak.
 // params va authorization

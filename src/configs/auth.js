@@ -1,13 +1,13 @@
 import cookie from "js-cookie";
 
 export const useAuth = () => {
-  const singIn = ({ token, user, tokenType = "Bearer" }) => {
+  const signIn = ({ token, user, tokenType = "Bearer" }) => {
     cookie.set("token", token);
     cookie.set("user", JSON.stringify(user));
     cookie.set("tokenType", tokenType);
   };
 
-  const singOut = () => {
+  const signOut = () => {
     cookie.remove("token");
     cookie.remove("user");
     cookie.remove("tokenType");
@@ -30,8 +30,8 @@ export const useAuth = () => {
   };
 
   return {
-    singIn,
-    singOut,
+    signIn,
+    signOut,
     getUser,
     isAuthed,
     updateUser,

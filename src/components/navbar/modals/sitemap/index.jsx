@@ -1,6 +1,7 @@
 import { Modal } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { setSiteMap } from "../../../../redux/generic-slices/modals";
+import Home from "../../../home";
 
 const SiteMap = () => {
   const { siteMap } = useSelector((state) => state.modal);
@@ -10,17 +11,24 @@ const SiteMap = () => {
     <Modal
       open={siteMap}
       onCancel={() => dispatch(setSiteMap())}
-      title="SiteMap"
+      onOk={() => dispatch(setSiteMap())}
+      title="Sitemap"
       footer={false}
     >
       <div>
-        <div className="transition flex items-center gap-3 cursor-pointer pl-[5px] w-full h-[40px] hover:gb-white hover:border-l-[5px] hover:border-[#46a358] hover:text-[#46a358]">
-          <h3 className="font-normal text-base">Home</h3>
+        <div
+          onClick={<Home />}
+          className="transition flex items-center gap-3 cursor-pointer w-full h-[40px] pl-[5px] hover:bg-white hover:border-l-[5px] hover:border-[#46A358] hover:text-[#46A358]"
+        >
+          Home
         </div>
-        <div className="transition flex items-center gap-3 cursor-pointer pl-[5px] w-full h-[40px] hover:gb-white hover:border-l-[5px] hover:border-[#46a358] hover:text-[#46a358]">
-          <h3 className="font-normal text-base">Blog</h3>
+        <div
+          onClick={""}
+          className="transition flex items-center gap-3 cursor-pointer w-full h-[40px] pl-[5px] hover:bg-white hover:border-l-[5px] hover:border-[#46A358] hover:text-[#46A358]"
+        >
+          Blog
         </div>
-        <button className="bg-[#46a358] flex rounded-md w-4/5 m-auto items-center justify-center gap-1 h-9 text-base text-white mt-3">
+        <button className="bg-[#46A358] flex rounded-md w-4/5 m-auto items-center justify-center gap-1 h-9 text-base text-white mt-3">
           Login
         </button>
       </div>
