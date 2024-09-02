@@ -1,8 +1,18 @@
 import { Empty } from "antd";
+import { useMyProductFeatures } from "../../features";
+import Loading from "./loading";
+import Card from "./customs/card";
 
 const Body = () => {
-  return (
-    <div className="flex flex-col gap-3">
+  const {
+    products: { isLoading, isError, data },
+  } = useMyProductFeatures();
+
+  const loading = isLoading || isError;
+
+  if (loading) return <Loading />;
+  if (!data?.length)
+    return (
       <Empty
         className="mt-[10px]"
         description={
@@ -11,6 +21,13 @@ const Body = () => {
           </div>
         }
       />
+    );
+
+  return (
+    <div className="flex flex-col gap-3">
+      {data?.map((product) => (
+        <Card {...product} key={product._id} />
+      ))}
     </div>
   );
 };
